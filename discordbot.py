@@ -24,8 +24,8 @@ async def loop():
     # 現在の時刻
     now = datetime.now().strftime('%H:%M')
     print(now)
-    if (now == '10:46') or (now == '11:46') or (now == '12:46') or (now == '13:46'):
-        channel = client.get_channel(CHANNEL_ID)
+#    if (now == '10:46') or (now == '11:46') or (now == '12:46') or (now == '13:46'):
+        channel = client.get_channel(channel_id)
         await channel.send('テスト投稿です！')  
 
 #ループ処理実行
