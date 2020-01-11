@@ -1,10 +1,11 @@
+import discord
 from discord.ext import commands
 from datetime import datetime
 from discord.ext import tasks
 import os
 import traceback
 
-bot = commands.Bot(command_prefix='/')
+#bot = commands.Bot(command_prefix='/')
 token = os.environ['DISCORD_BOT_TOKEN']
 channel_id = os.environ['DISCORD_CHANNEL_ID']
 
@@ -17,6 +18,9 @@ channel_id = os.environ['DISCORD_CHANNEL_ID']
 #@bot.command()
 #async def ping(ctx):
 #    await ctx.send('pong')
+
+# 接続に必要なオブジェクトを生成
+client = discord.Client()
 
 # 60秒に一回ループ
 @tasks.loop(seconds=60)
@@ -31,4 +35,5 @@ async def loop():
 #ループ処理実行
 loop.start()
 
-bot.run(token)
+#bot.run(token)
+client.run(token)
