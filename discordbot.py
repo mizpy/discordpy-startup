@@ -1,40 +1,21 @@
-#coding:UTF-8
-import discord
-from datetime import datetime
-from discord.ext import tasks
+from discord.ext import commands
+import os
+import traceback
 
-logged = 0
+bot = commands.Bot(command_prefix='/')
+token = os.environ['DISCORD_BOT_TOKEN']
 
-TOKEN = "NjY1NTg0MTYzMjQzNjg3OTU2.XhohOQ.gg9rtHy-mkFPO1k5fcQszWwEyQQ" #トークン
-CHANNEL_ID = 665527939160473622 #チャンネルID
-# 接続に必要なオブジェクトを生成
-client = discord.Client()
 
-@client.event
-async def on_ready():
-    print('Logged in as')
-    print(client.user.name)
-    print(client.user.id)
-    print('------')
-    global logged
-    logged = 1
-    print(logged)
-    
-# 60秒に一回ループ
-@tasks.loop(seconds=60)
-async def loop():
-    # 現在の時刻
-    now = datetime.now().strftime('%H:%M')
-    print(now)
-    print(logged)
-    #if now == '02:21':
-    if logged == 1:
-        print('send')
-        channel = client.get_channel(CHANNEL_ID)
-        await channel.send('テスト投稿です！')  
+@bot.event
+async def on_command_error(ctx, error):
+    orig_error = getattr(error, "original", error)
+    error_msg = ''.join(traceback.TracebackException.from_exception(orig_error).format())
+    await ctx.send(error_msg)
 
-#ループ処理実行
-loop.start()
 
-# Botの起動とDiscordサーバーへの接続
-client.run(TOKEN)
+@bot.command()
+async def ping(ctx):
+    await ctx.send('pong')
+
+
+bot.run(token)
