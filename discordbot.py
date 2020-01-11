@@ -1,4 +1,5 @@
 from discord.ext import commands
+from discord.ext import tasks
 import os
 import traceback
 
@@ -17,5 +18,14 @@ async def on_command_error(ctx, error):
 async def ping(ctx):
     await ctx.send('pong')
 
+# 60秒に一回ループ
+@tasks.loop(seconds=60)
+async def loop():
+    # 現在の時刻
+    now = datetime.now().strftime('%H:%M')
+    print(now)
 
+#ループ処理実行
+loop.start()
+    
 bot.run(token)
