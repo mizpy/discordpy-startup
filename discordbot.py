@@ -5,9 +5,12 @@ from discord.ext import tasks
 import os
 import traceback
 
-logged = 0
+bot_logged = 0
+client_logged = 0
 
 bot = commands.Bot(command_prefix='/')
+client = discord.Client()
+
 token = os.environ['DISCORD_BOT_TOKEN']
 channel_id = os.environ['DISCORD_CHANNEL_ID']
 
@@ -19,13 +22,22 @@ async def on_command_error(ctx, error):
 
 @bot.event    
 async def on_ready():
-    print('Logged in as')
+    print('bot Logged in as')
     print(bot.user.name)
     print(bot.user.id)
     print('------')
-    global logged
-    logged = 1
+    global bot_logged
+    bot_logged = 1
 
+@client.event
+async def on_ready():
+    print('client Logged in as')
+    print(client.user.name)
+    print(client.user.id)
+    print('------')
+    global client_logged
+    client_logged = 1    
+    
 @bot.command()
 async def ping(ctx):
     print('pong')
@@ -36,9 +48,9 @@ async def test_notice(ctx):
     # 現在の時刻
     now = datetime.now().strftime('%H:%M')
     print(now)
-    if logged == 1:
+    if (bot_logged == 1) and (client_logged == 1):
         print('send')
-        channel = bot.get_channel(channel_id)
+        channel = client.get_channel(channel_id)
         await channel.send('演習おもらし注意報をお知らせしますっ！（テスト）')  
     
 # 60秒に一回ループ
@@ -47,14 +59,14 @@ async def loop():
     # 現在の時刻
     now = datetime.now().strftime('%H:%M')
     print(now)
-    if logged == 1:
+    if client_logged == 1:
         # 時差は日本時間-9時間
         # 13:45->2:45
         # 17:45->8:45
         # 23:45->14:45
         if (now == '02:45') or (now == '08:45') or (now == '14:45'):
             print('send')
-            channel = bot.get_channel(channel_id)
+            channel = client.get_channel(channel_id)
             await channel.send('演習おもらし注意報をお知らせしますっ！')  
 
 #ループ処理実行
