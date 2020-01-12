@@ -12,7 +12,7 @@ client_logged = 0
 client = discord.Client()
 
 token = os.environ['DISCORD_BOT_TOKEN']
-channel_id = os.environ['DISCORD_CHANNEL_ID']
+channel_id = int(os.environ['DISCORD_CHANNEL_ID'])
 
 #@bot.event
 #async def on_command_error(ctx, error):
@@ -68,6 +68,10 @@ async def loop():
             print('send')
             channel = client.get_channel(channel_id)
             await channel.send('演習おもらし注意報をお知らせしますっ！')  
+        elif (now == '03:00'):
+            print('send')
+            channel = client.get_channel(channel_id)
+            await channel.send('リモートサーバーから演習おもらし注意報の動作テストを実施中です')  
 
 #ループ処理実行
 loop.start()
