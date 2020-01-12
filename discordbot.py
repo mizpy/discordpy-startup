@@ -5,29 +5,29 @@ from discord.ext import tasks
 import os
 import traceback
 
-bot_logged = 0
+#bot_logged = 0
 client_logged = 0
 
-bot = commands.Bot(command_prefix='/')
+#bot = commands.Bot(command_prefix='/')
 client = discord.Client()
 
 token = os.environ['DISCORD_BOT_TOKEN']
 channel_id = os.environ['DISCORD_CHANNEL_ID']
 
-@bot.event
-async def on_command_error(ctx, error):
-    orig_error = getattr(error, "original", error)
-    error_msg = ''.join(traceback.TracebackException.from_exception(orig_error).format())
-    await ctx.send(error_msg)
+#@bot.event
+#async def on_command_error(ctx, error):
+#    orig_error = getattr(error, "original", error)
+#    error_msg = ''.join(traceback.TracebackException.from_exception(orig_error).format())
+#    await ctx.send(error_msg)
 
-@bot.event    
-async def on_ready():
-    print('bot Logged in as')
-    print(bot.user.name)
-    print(bot.user.id)
-    print('------')
-    global bot_logged
-    bot_logged = 1
+#@bot.event    
+#async def on_ready():
+#    print('bot Logged in as')
+#    print(bot.user.name)
+#    print(bot.user.id)
+#    print('------')
+#    global bot_logged
+#    bot_logged = 1
 
 @client.event
 async def on_ready():
@@ -38,20 +38,20 @@ async def on_ready():
     global client_logged
     client_logged = 1    
     
-@bot.command()
-async def ping(ctx):
-    print('pong')
-    await ctx.send('pong')
+#@bot.command()
+#async def ping(ctx):
+#    print('pong')
+#    await ctx.send('pong')
 
-@bot.command()
-async def test_notice(ctx):
-    # 現在の時刻
-    now = datetime.now().strftime('%H:%M')
-    print(now)
-    if (bot_logged == 1) and (client_logged == 1):
-        print('send')
-        channel = client.get_channel(channel_id)
-        await channel.send('演習おもらし注意報をお知らせしますっ！（テスト）')  
+#@bot.command()
+#async def test_notice(ctx):
+#    # 現在の時刻
+#    now = datetime.now().strftime('%H:%M')
+#    print(now)
+#    if (bot_logged == 1) and (client_logged == 1):
+#        print('send')
+#        channel = client.get_channel(channel_id)
+#        await channel.send('演習おもらし注意報をお知らせしますっ！（テスト）')  
     
 # 60秒に一回ループ
 @tasks.loop(seconds=60)
@@ -72,5 +72,5 @@ async def loop():
 #ループ処理実行
 loop.start()
     
-bot.run(token)
+#bot.run(token)
 client.run(token)
