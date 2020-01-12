@@ -82,7 +82,7 @@ async def loop():
             print('send')
             channel = client.get_channel(channel_id)
             await channel.send('24時前の演習おもらし注意報をお知らせしますっ！')  
-        elif (now == '15:45') and (now_weekday == 0):
+        elif (now == '15:45') and (now_weekday == 6):#日本時間の月曜0:00->世界標準時の日曜15:00
             print('send')
             channel = client.get_channel(channel_id)
             await channel.send('日付が変わって月曜日になりました。\n大講堂で授業を受けさせましょうっ！')  
