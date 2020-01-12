@@ -58,20 +58,34 @@ async def on_ready():
 async def loop():
     # 現在の時刻
     now = datetime.now().strftime('%H:%M')
+    now_weekday = datetime.now().weekday()
     print(now)
+    print(now_weekday)
     if client_logged == 1:
         # 時差は日本時間-9時間
         # 13:45->2:45
         # 17:45->8:45
         # 23:45->14:45
-        if (now == '02:45') or (now == '08:45') or (now == '14:45'):
+        if (now == '02:45'):
             print('send')
             channel = client.get_channel(channel_id)
-            await channel.send('演習おもらし注意報をお知らせしますっ！')  
-        elif (now == '15:03'):
+            await channel.send('正午前の演習おもらし注意報をお知らせしますっ！')  
+        elif (now == '08:45'):
             print('send')
             channel = client.get_channel(channel_id)
-            await channel.send('リモートサーバーから演習おもらし注意報の動作テストを実施中です')  
+            await channel.send('18時前の演習おもらし注意報をお知らせしますっ！')  
+        elif (now == '14:45') and (now_weekday == 5):
+            print('send')
+            channel = client.get_channel(channel_id)
+            await channel.send('24時前の演習おもらし注意報をお知らせしますっ！\n明日は日曜日なので、大講堂の更新も忘れずにっ！')  
+        elif (now == '14:45'):
+            print('send')
+            channel = client.get_channel(channel_id)
+            await channel.send('24時前の演習おもらし注意報をお知らせしますっ！')  
+        elif (now == '15:45') and (now_weekday == 0):
+            print('send')
+            channel = client.get_channel(channel_id)
+            await channel.send('日付が変わって月曜日になりました。\n大講堂で授業を受けさせましょうっ！')  
 
 #ループ処理実行
 loop.start()
