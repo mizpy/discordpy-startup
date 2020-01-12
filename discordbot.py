@@ -68,7 +68,7 @@ async def loop():
             print('send')
             channel = client.get_channel(channel_id)
             await channel.send('演習おもらし注意報をお知らせしますっ！')  
-        elif (now == '03:00'):
+        elif (now == '15:03'):
             print('send')
             channel = client.get_channel(channel_id)
             await channel.send('リモートサーバーから演習おもらし注意報の動作テストを実施中です')  
