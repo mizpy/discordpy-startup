@@ -70,15 +70,15 @@ async def loop():
         if (now == '02:45'):
             print('send')
             channel = client.get_channel(channel_id)
-            await channel.send('正午前の演習おもらし注意報をお知らせしますっ！')  
+            await channel.send('【演習】正午前の演習おもらし注意報をお知らせしますっ！')  
         elif (now == '08:45'):
             print('send')
             channel = client.get_channel(channel_id)
-            await channel.send('18時前の演習おもらし注意報をお知らせしますっ！')  
+            await channel.send('【演習】18時前の演習おもらし注意報をお知らせしますっ！')  
         elif (now == '14:45'):
             print('send')
             channel = client.get_channel(channel_id)
-            await channel.send('24時前の演習おもらし注意報をお知らせしますっ！')  
+            await channel.send('【演習】深夜0時前の演習おもらし注意報をお知らせしますっ！')  
         #----講堂系の設定----
         elif (now == '14:50') and (now_weekday == 6):#日本時間の月曜0:00->世界標準時の日曜15:00
             print('send')
