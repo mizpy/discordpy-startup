@@ -31,6 +31,16 @@ async def ping(ctx):
     print('pong')
     await ctx.send('pong')
 
+@bot.command()
+async def test_notice(ctx):
+    # 現在の時刻
+    now = datetime.now().strftime('%H:%M')
+    print(now)
+    if logged == 1:
+        print('send')
+        channel = bot.get_channel(channel_id)
+        await channel.send('演習おもらし注意報をお知らせしますっ！（テスト）')  
+    
 # 60秒に一回ループ
 @tasks.loop(seconds=60)
 async def loop():
@@ -44,7 +54,7 @@ async def loop():
         # 23:45->14:45
         if (now == '02:45') or (now == '08:45') or (now == '14:45'):
             print('send')
-            channel = client.get_channel(channel_id)
+            channel = bot.get_channel(channel_id)
             await channel.send('演習おもらし注意報をお知らせしますっ！')  
 
 #ループ処理実行
