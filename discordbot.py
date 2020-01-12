@@ -1,3 +1,5 @@
+import discord
+from datetime import datetime
 from discord.ext import commands
 from discord.ext import tasks
 import os
@@ -12,6 +14,8 @@ async def on_command_error(ctx, error):
     orig_error = getattr(error, "original", error)
     error_msg = ''.join(traceback.TracebackException.from_exception(orig_error).format())
     await ctx.send(error_msg)
+
+@bot.event    
 async def on_ready():
     print('Logged in as')
     print(bot.user.name)
