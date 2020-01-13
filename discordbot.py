@@ -7,6 +7,7 @@ import traceback
 
 #bot_logged = 0
 client_logged = 0
+prev_now = ''
 
 #bot = commands.Bot(command_prefix='/')
 client = discord.Client()
@@ -53,15 +54,16 @@ async def on_ready():
 #        channel = client.get_channel(channel_id)
 #        await channel.send('演習おもらし注意報をお知らせしますっ！（テスト）')  
     
-# 60秒に一回ループ
-@tasks.loop(seconds=60)
+# 20秒に一回ループ
+@tasks.loop(seconds=20)
 async def loop():
     # 現在の時刻
     now = datetime.now().strftime('%H:%M')
     now_weekday = datetime.now().weekday()
-    print(now)
-    print(now_weekday)
-    if client_logged == 1:
+    if (prev_now != now) and (client_logged == 1):
+        print(now)
+        print(now_weekday)
+        prev_now = now
         # 時差は日本時間-9時間
         # 13:45->2:45
         # 17:45->8:45
