@@ -73,36 +73,36 @@ async def loop():
         if (now == '02:45'):
             print('send')
             channel = client.get_channel(channel_id)
-            await channel.send('【演習】正午前の演習おもらし注意報をお知らせしますっ！')  
+            await channel.send('@everyone\n**【演習】**正午前の演習おもらし注意報をお知らせしますっ！')  
         elif (now == '08:45'):
             print('send')
             channel = client.get_channel(channel_id)
-            await channel.send('【演習】18時前の演習おもらし注意報をお知らせしますっ！')  
+            await channel.send('@everyone\n**【演習】**18時前の演習おもらし注意報をお知らせしますっ！')  
         elif (now == '14:45'):
             print('send')
             channel = client.get_channel(channel_id)
-            await channel.send('【演習】深夜0時前の演習おもらし注意報をお知らせしますっ！')  
+            await channel.send('@everyone\n**【演習】**深夜0時前の演習おもらし注意報をお知らせしますっ！')  
         #----講堂系の設定----
         elif (now == '14:50') and (now_weekday == 6):#日本時間の月曜0:00->世界標準時の日曜15:00
             print('send')
             channel = client.get_channel(channel_id)
-            await channel.send('【講堂】もうすぐ私の授業の時間よ！ちゃんと私に駆逐艦を預けてから寝なさい！（アマゾン）\n:dolphin:月曜日になったら大講堂で駆逐艦に授業を受けさせましょう:dolphin:') 
+            await channel.send('@everyone\n**【講堂】**もうすぐ私の授業の時間よ！ちゃんと私に駆逐艦を預けてから寝なさい！（アマゾン）\n:dolphin:月曜日になったら大講堂で駆逐艦に授業を受けさせましょう:dolphin:') 
         elif (now == '14:50') and (now_weekday == 0):#日本時間の火曜0:00->世界標準時の月曜15:00
             print('send')
             channel = client.get_channel(channel_id)
-            await channel.send('【講堂】私の授業時間ももうすぐ終わり！…え？残業！？仕方ないわね…やってやるか…（アマゾン）\n:dolphin:駆逐艦にもっと授業を受けさせたい場合は今のうちに受け直しましょう:dolphin:') 
+            await channel.send('@everyone\n**【講堂】**私の授業時間ももうすぐ終わり！…え？残業！？仕方ないわね…やってやるか…（アマゾン）\n:dolphin:駆逐艦にもっと授業を受けさせたい場合は今のうちに受け直しましょう:dolphin:') 
         elif (now == '14:50') and (now_weekday == 1):#日本時間の水曜0:00->世界標準時の火曜15:00
             print('send')
             channel = client.get_channel(channel_id)
-            await channel.send('【講堂】ご主人は巡洋艦の授業に満足してる？ふふふ、夕張はまだまだ授業したいぞ～（夕張）\n:dolphin:巡洋艦にもっと授業を受けさせたい場合は今のうちに受け直しましょう:dolphin:') 
+            await channel.send('@everyone\n**【講堂】**ご主人は巡洋艦の授業に満足してる？ふふふ、夕張はまだまだ授業したいぞ～（夕張）\n:dolphin:巡洋艦にもっと授業を受けさせたい場合は今のうちに受け直しましょう:dolphin:') 
         elif (now == '14:50') and (now_weekday == 3):#日本時間の金曜0:00->世界標準時の木曜15:00
             print('send')
             channel = client.get_channel(channel_id)
-            await channel.send('【講堂】私の授業時間ももうすぐ終わり！…え？残業！？仕方ないわね…やってやるか…（アマゾン）\n:dolphin:駆逐艦にもっと授業を受けさせたい場合は今のうちに受け直しましょう:dolphin:') 
+            await channel.send('@everyone\n**【講堂】**私の授業時間ももうすぐ終わり！…え？残業！？仕方ないわね…やってやるか…（アマゾン）\n:dolphin:駆逐艦にもっと授業を受けさせたい場合は今のうちに受け直しましょう:dolphin:') 
         elif (now == '14:50') and (now_weekday == 4):#日本時間の土曜0:00->世界標準時の金曜15:00
             print('send')
             channel = client.get_channel(channel_id)
-            await channel.send('【講堂】ご主人は巡洋艦の授業に満足してる？ふふふ、夕張はまだまだ授業したいぞ～（夕張）\n:dolphin:日曜日は授業がお休みです。今のうちに授業を受け直しましょう:dolphin:') 
+            await channel.send('@everyone\n**【講堂】**ご主人は巡洋艦の授業に満足してる？ふふふ、夕張はまだまだ授業したいぞ～（夕張）\n:dolphin:日曜日は授業がお休みです。今のうちに授業を受け直しましょう:dolphin:') 
 
 #ループ処理実行
 loop.start()
