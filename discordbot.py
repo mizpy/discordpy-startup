@@ -58,13 +58,13 @@ async def on_ready():
 @tasks.loop(seconds=20)
 async def loop():
     # 現在の時刻
+    global prev_now
     now = datetime.now().strftime('%H:%M')
     now_weekday = datetime.now().weekday()
     if (prev_now != now) and (client_logged == 1):
+        prev_now = now
         print(now)
         print(now_weekday)
-        global prev_now
-        prev_now = now
         # 時差は日本時間-9時間
         # 13:45->2:45
         # 17:45->8:45
