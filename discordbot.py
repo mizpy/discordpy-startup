@@ -91,7 +91,7 @@ async def loop():
             print('send')
             channel = client.get_channel(channel_id)
             await channel.send('@everyone\n**【メンテ】**本日14:00からメンテナンスです。\n演習のおもらしなどにご注意くださいっ！')      
-         elif (now == '04:45'):
+        elif (now == '04:45'):
             print('send')
             channel = client.get_channel(channel_id)
             await channel.send('@everyone\n**【演習】**メンテ前の演習おもらし注意報をお知らせしますっ！')  
