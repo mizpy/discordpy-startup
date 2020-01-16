@@ -82,7 +82,20 @@ async def loop():
             print('send')
             channel = client.get_channel(channel_id)
             await channel.send('@everyone\n**【演習】**深夜0時前の演習おもらし注意報をお知らせしますっ！')  
-        #----講堂系の設定----
+        #----メンテ系の設定----
+        elif (now == '03:00'):
+            print('send')
+            channel = client.get_channel(channel_id)
+            await channel.send('@everyone\n**【メンテ】**本日14:00からメンテナンスです。\n演習のおもらしなどにご注意くださいっ！')  
+        elif (now == '04:30'):
+            print('send')
+            channel = client.get_channel(channel_id)
+            await channel.send('@everyone\n**【メンテ】**本日14:00からメンテナンスです。\n演習のおもらしなどにご注意くださいっ！')      
+         elif (now == '04:45'):
+            print('send')
+            channel = client.get_channel(channel_id)
+            await channel.send('@everyone\n**【演習】**メンテ前の演習おもらし注意報をお知らせしますっ！')  
+       #----講堂系の設定----
         elif (now == '14:50') and (now_weekday == 6):#日本時間の月曜0:00->世界標準時の日曜15:00
             print('send')
             channel = client.get_channel(channel_id)
