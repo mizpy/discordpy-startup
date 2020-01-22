@@ -145,10 +145,10 @@ async def loop():
             print('send')
             channel = client.get_channel(channel_id)
             await channel.send('@everyone\n**【講堂】**ペン姉さんの講義の時間だ、心して受けるがいい！指揮官、あとは私に任せておいて（ペンシルベニア）\n:dolphin:水曜日は大講堂で戦艦に授業を受けさせましょう:dolphin:')
-        elif (now == '15:00') and (now_weekday == 2):#日本時間の木曜0:00->世界標準時の水曜15:00
+        elif (now == '15:10') and (now_weekday == 2):#日本時間の木曜0:00->世界標準時の水曜15:00
             print('send')
             channel = client.get_channel(channel_id)
-#           await channel.send('@everyone\n**【講堂】**私の授業時間ももうすぐ終わり！…え？残業！？仕方ないわね…やってやるか…（アマゾン）\n:dolphin:駆逐艦にもっと授業を受けさせたい場合は今のうちに受け直しましょう:dolphin:') 
+            await channel.send('@everyone\n**【講堂】**指揮官、今日は私の授業の日ですわ。前回の宿題任務、ちゃんとやりましたか？（ラングレー）\n:dolphin:木曜日は大講堂で空母に授業を受けさせましょう:dolphin:') 
         elif (now == '15:00') and (now_weekday == 3):#日本時間の金曜0:00->世界標準時の木曜15:00
             print('send')
             channel = client.get_channel(channel_id)
