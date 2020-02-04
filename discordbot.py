@@ -66,7 +66,7 @@ async def loop():
         print(now)
         print(now_weekday)
         # 時差は日本時間-9時間
-        # 13:45->2:45
+        # 11:45->2:45
         # 17:45->8:45
         # 23:45->14:45
         #----演習系の設定----
@@ -83,6 +83,14 @@ async def loop():
             channel = client.get_channel(channel_id)
             await channel.send('@everyone\n**【演習】**深夜0時前の演習おもらし注意報をお知らせしますっ！')  
         #----メンテ系の設定----
+        elif (now == '3:05'):
+            print('send')
+            channel = client.get_channel(channel_id)
+            await channel.send('@everyone\n**【メンテ】**次回のメンテナンスは2/6（木）14:00～18:00の予定です。')
+        elif (now == '15:05'):
+            print('send')
+            channel = client.get_channel(channel_id)
+            await channel.send('@everyone\n**【メンテ】**次回のメンテナンスは2/6（木）14:00～18:00の予定です。')
 #        elif (now == '15:10'):
 #            print('send')
 #            channel = client.get_channel(channel_id)
