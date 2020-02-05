@@ -129,7 +129,7 @@ async def loop():
             ment_end_date = ment_end_datetime.strftime('%Y/%m/%d')
             ment_end_time = ment_end_datetime.strftime('%H:%M')
             
-            if (ment_begin_date > now_date):
+            if (ment_begin_date.timedelta > now_date.timedelta):
                 for ment_prev_msg in ment_prev_msgs:
                     print(' >ment prev check:', ment_prev_msg[0])
                     if(ment_prev_msg[0] == now_time):
