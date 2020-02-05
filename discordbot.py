@@ -23,8 +23,8 @@ ment_end_time = '18:00'
 
 ment_begin_datetime_str = ment_date + ' ' + ment_begin_time
 ment_end_datetime_str = ment_date + ' ' + ment_end_time
-ment_begin_datetime = datetime.datetime.strptime(ment_begin_datetime_str, '%Y/%m/%d %H:%M')
-ment_end_datetime = datetime.datetime.strptime(ment_end_datetime_str, '%Y/%m/%d %H:%M')
+ment_begin_datetime = datetime.strptime(ment_begin_datetime_str, '%Y/%m/%d %H:%M')
+ment_end_datetime = datetime.strptime(ment_end_datetime_str, '%Y/%m/%d %H:%M')
 
 #曜日別メッセージリスト
 mon_msgs=[
