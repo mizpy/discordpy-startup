@@ -99,14 +99,14 @@ async def on_ready():
 @tasks.loop(seconds=5)
 async def loop():
     # 現在の時刻
-    global prev_now
+    global prev_time
     now_datetime = datetime.now(JST)
-    now = now_datetime.strftime('%H:%M')
+    now_date = now_datetime.strftime('%Y-%m/%d')
+    now_time = now_datetime.strftime('%H:%M')
     now_weekday = now_datetime.weekday()
-    if (prev_now != now) and (client_logged == 1):
-        prev_now = now
-        print(now)
-        print(now_weekday)
+    if (prev_time != now_time) and (client_logged == 1):
+        prev_time = now_time
+        print(now_datetime + '\n' + now_date + '(' + now_weekday + ') ' + now_time)
         # 時差は日本時間-9時間
         # 11:45->2:45
         # 17:45->8:45
