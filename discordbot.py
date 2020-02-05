@@ -112,7 +112,7 @@ async def loop():
         # 17:45->8:45
         # 23:45->14:45
         #----演習系の設定----
-        if (now == '02:45'):
+        if (now_time == '02:45'):
             print('send')
             channel = client.get_channel(channel_id)
             await channel.send('@everyone\n**【演習】**正午前の演習おもらし注意報をお知らせしますっ！')  
