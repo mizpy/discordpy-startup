@@ -17,14 +17,16 @@ client = discord.Client()
 token = os.environ['DISCORD_BOT_TOKEN']
 channel_id = int(os.environ['DISCORD_CHANNEL_ID'])
 
-ment_date = '2020/02/06'
-ment_begin_time = '14:00'
-ment_end_time = '18:00'
-
-ment_begin_datetime_str = ment_date + ' ' + ment_begin_time
-ment_end_datetime_str = ment_date + ' ' + ment_end_time
+ment_begin_datetime_str = '2020/02/06 14:00'
+ment_end_datetime_str = '2020/02/06 18:00'
 ment_begin_datetime = datetime.strptime(ment_begin_datetime_str, '%Y/%m/%d %H:%M')
 ment_end_datetime = datetime.strptime(ment_end_datetime_str, '%Y/%m/%d %H:%M')
+
+#メンテナンス事前予告
+ment_prev_msgs=[
+    ['00:05', '@everyone\n**【メンテ】**次回のメンテナンスは' + ment_begin_datetime_str + '～' + ment_end_datetime_str + 'の予定です。'],
+    ['12:05', '@everyone\n**【メンテ】**次回のメンテナンスは' + ment_begin_datetime_str + '～' + ment_end_datetime_str + 'の予定です。'],
+]
 
 #曜日別メッセージリスト
 mon_msgs=[
@@ -119,14 +121,32 @@ async def loop():
         print(now_date, now_weekday, now_time)
         
         #----メンテメッセージ----
-        if (ment_date == now_date):
-            print(' >ment_date:', ment_date)
-            print(' >ment_begin_datetime_str:', ment_begin_datetime_str)
-            print(' >ment_end_datetime_str:', ment_end_datetime_str)
-            print(' >ment_begin_datetime:', ment_begin_datetime)
-            print(' >ment_end_datetime:', ment_end_datetime)
+        global ment_begin_datetime
+        global ment_end_datetime
+        if (ment_end_datetime >= now_datetime):
+            ment_begin_date = ment_begin_datetime.strftime('%Y/%m/%d')
+            ment_begin_time = ment_begin_datetime.strftime('%H:%M')
+            ment_end_date = ment_end_datetime.strftime('%Y/%m/%d')
+            ment_end_time = ment_end_datetime.strftime('%H:%M')
             
-        
+            if (ment_begin_date > now_date):
+                for ment_prev_msg in ment_prev_msgs:
+                    print(' >ment prev check:', ment_prev_msg[0])
+                    if(ment_prev_msg[0] == now_time):
+                        print(' >>SEND:', ment_prev_msg[1])
+                        channel = client.get_channel(channel_id)
+                        await channel.send(ment_prev_msg[1])
+            else:
+                print(' >ment_begin_datetime_str:', ment_begin_datetime_str)
+                print(' >ment_end_datetime_str:', ment_end_datetime_str)
+                print(' >ment_begin_datetime:', ment_begin_datetime)
+                print(' >ment_end_datetime:', ment_end_datetime)
+                for ment_prev_msg in ment_prev_msgs:
+                    print(' >ment today check:', ment_prev_msg[0])
+                    if(ment_prev_msg[0] == now_time):
+                        print(' >>SEND:', ment_prev_msg[1])
+                        channel = client.get_channel(channel_id)
+                        await channel.send(ment_prev_msg[1])
         
         #----毎日メッセージ----
         for dayly_msg in dayly_msgs:
