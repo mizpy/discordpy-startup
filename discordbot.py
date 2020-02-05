@@ -47,8 +47,8 @@ weekly_msgs=[mon_msgs, tue_msgs, wed_msgs, thu_msgs, fri_msgs, sat_msgs, sun_msg
 
 #毎日メッセージリスト
 dayly_msgs=[
-    ['11:45', '@everyone\n【演習】正午前の演習おもらし注意報をお知らせしますっ！']
-    ['17:45', '@everyone\n【演習】18時前の演習おもらし注意報をお知らせしますっ！']
+    ['11:45', '@everyone\n【演習】正午前の演習おもらし注意報をお知らせしますっ！'],
+    ['17:45', '@everyone\n【演習】18時前の演習おもらし注意報をお知らせしますっ！'],
     ['23:45', '@everyone\n【演習】深夜0時前の演習おもらし注意報をお知らせしますっ！']
 ]
 
