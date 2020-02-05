@@ -141,7 +141,7 @@ async def loop():
 #            print(' >ment_end_datetime_str:', ment_end_datetime_str)
 #            print(' >ment_begin_datetime:', ment_begin_datetime)
 #            print(' >ment_end_datetime:', ment_end_datetime)
-        delta = ment_begin_datetime - now_datetime
+        delta = ment_begin_datetime.date() - now_datetime.date()
         for ment_prev_msg in ment_prev_msgs:
             print(' >ment today check:', ment_prev_msg[0], ment_prev_msg[1])
             if(ment_prev_msg[0] == now_time):
