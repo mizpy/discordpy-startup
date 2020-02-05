@@ -17,6 +17,15 @@ client = discord.Client()
 token = os.environ['DISCORD_BOT_TOKEN']
 channel_id = int(os.environ['DISCORD_CHANNEL_ID'])
 
+ment_date = '2020/02/06'
+ment_begin_time = '14:00'
+ment_end_time = '18:00'
+
+ment_begin_datetime_str = ment_date + ' ' + ment_begin_time
+ment_end_datetime_str = ment_date + ' ' + ment_end_time
+ment_begin_datetime = datetime.datetime.strptime(ment_begin_datetime_str, '%Y/%m/%d %H:%M')
+ment_end_datetime = datetime.datetime.strptime(ment_end_datetime_str, '%Y/%m/%d %H:%M')
+
 #曜日別メッセージリスト
 mon_msgs=[
     ['00:00', '@everyone\n【講堂】『ぴんぽんぱんぽーん！アマゾン先生、アマゾン先生、講義の時間です。至急講堂までー。』\n…ZzZzZz……んんっ！？もう講義の時間っ！？指揮官に呼び出されるとか最悪ーっ！（アマゾン）\n:dolphin:月曜日は大講堂で駆逐艦に授業を受けさせましょう:dolphin:'],
@@ -101,7 +110,7 @@ async def loop():
     # 現在の時刻
     global prev_time
     now_datetime = datetime.now(JST)
-    now_date = now_datetime.strftime('%Y-%m/%d')
+    now_date = now_datetime.strftime('%Y/%m/%d')
     now_time = now_datetime.strftime('%H:%M')
     now_weekday = now_datetime.weekday()
     
@@ -109,19 +118,29 @@ async def loop():
         prev_time = now_time
         print(now_date, now_weekday, now_time)
         
+        #----メンテメッセージ----
+        if (ment_date == now_date):
+            print(' >ment_date:', ment_date)
+            print(' >ment_begin_datetime_str:', ment_begin_datetime_str)
+            print(' >ment_end_datetime_str:', ment_end_datetime_str)
+            print(' >ment_begin_datetime:', ment_begin_datetime)
+            print(' >ment_end_datetime:', ment_end_datetime)
+            
+        
+        
         #----毎日メッセージ----
         for dayly_msg in dayly_msgs:
-            print('dayly check:', dayly_msg[0])
+            print(' >dayly check:', dayly_msg[0])
             if(dayly_msg[0] == now_time):
-                print('SEND:', dayly_msg[1])
+                print(' >>SEND:', dayly_msg[1])
                 channel = client.get_channel(channel_id)
                 await channel.send(dayly_msg[1])
         
         #----曜日メッセージ----
         for weekly_msg in weekly_msgs[now_weekday]:
-            print('weekly check:', now_weekday, weekly_msg[0])
+            print(' >weekly check:', now_weekday, weekly_msg[0])
             if(weekly_msg[0] == now_time):
-                print('SEND:', weekly_msg[1])
+                print(' >>SEND:', weekly_msg[1])
                 channel = client.get_channel(channel_id)
                 await channel.send(weekly_msg[1])
 
