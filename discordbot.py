@@ -78,7 +78,7 @@ async def on_ready():
     print(client.user.id)
     print('------')
     global client_logged
-    client_logged = 1    
+    client_logged = 1
     
 #@bot.command()
 #async def ping(ctx):
@@ -108,6 +108,24 @@ async def loop():
     if (prev_time != now_time) and (client_logged == 1):
         prev_time = now_time
         print(now_date, now_weekday, now_time)
+        
+        #----毎日メッセージ----
+        for dayly_msg in dayly_msgs:
+            print('dayly check:', dayly_msg[0], dayly_msg[1])
+            if(dayly_msg[0] == now_time):
+                print('SEND:', dayly_msg[0], dayly_msg[1])
+                channel = client.get_channel(channel_id)
+                await channel.send(dayly_msg[1])
+        
+        #----曜日メッセージ----
+        for weekly_msg in weekly_msgs[now_weekday]:
+            print('weekly check:', weekly_msg[0], weekly_msg[1])
+            if(weekly_msg[0] == now_time):
+                print('SEND:', weekly_msg[0], weekly_msg[1])
+                channel = client.get_channel(channel_id)
+                await channel.send(weekly_msg[1])
+
+        
         
         #----演習系の設定----
 #        if (now_time == '02:45'):
