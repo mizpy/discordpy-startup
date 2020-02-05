@@ -111,17 +111,17 @@ async def loop():
         
         #----毎日メッセージ----
         for dayly_msg in dayly_msgs:
-            print('dayly check:', dayly_msg[0], dayly_msg[1])
+            print('dayly check:', dayly_msg[0])
             if(dayly_msg[0] == now_time):
-                print('SEND:', dayly_msg[0], dayly_msg[1])
+                print('SEND:', dayly_msg[1])
                 channel = client.get_channel(channel_id)
                 await channel.send(dayly_msg[1])
         
         #----曜日メッセージ----
         for weekly_msg in weekly_msgs[now_weekday]:
-            print('weekly check:', weekly_msg[0], weekly_msg[1])
+            print('weekly check:', now_weekday, weekly_msg[0])
             if(weekly_msg[0] == now_time):
-                print('SEND:', weekly_msg[0], weekly_msg[1])
+                print('SEND:', weekly_msg[1])
                 channel = client.get_channel(channel_id)
                 await channel.send(weekly_msg[1])
 
