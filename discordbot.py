@@ -25,7 +25,7 @@ ment_end_datetime = datetime.strptime(ment_end_datetime_str, '%Y/%m/%d %H:%M')
 #メンテナンス事前予告
 ment_prev_msgs=[
     ['00:05', '@everyone\n**【メンテ】**次回のメンテナンスは' + ment_begin_datetime_str + '～' + ment_end_datetime_str + 'の予定です。'],
-    ['12:05', '@everyone\n**【メンテ】**次回のメンテナンスは' + ment_begin_datetime_str + '～' + ment_end_datetime_str + 'の予定です。'],
+    ['12:05', '@everyone\n**【メンテ】**次回のメンテナンスは' + ment_begin_datetime_str + '～' + ment_end_datetime_str + 'の予定です。']
 ]
 
 #曜日別メッセージリスト
