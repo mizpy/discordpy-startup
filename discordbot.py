@@ -123,7 +123,7 @@ async def loop():
         #----メンテメッセージ----
         global ment_begin_datetime
         global ment_end_datetime
-        if (ment_end_datetime >= now_datetime):
+        if (ment_end_datetime.timedelta >= now_datetime.timedelta):
             ment_begin_date = ment_begin_datetime.strftime('%Y/%m/%d')
             ment_begin_time = ment_begin_datetime.strftime('%H:%M')
             ment_end_date = ment_end_datetime.strftime('%Y/%m/%d')
