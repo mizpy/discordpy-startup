@@ -11,6 +11,7 @@ JST = timezone(timedelta(hours=+9), 'JST')
 client_logged = 0
 prev_time = ''
 
+
 #bot = commands.Bot(command_prefix='/')
 client = discord.Client()
 
