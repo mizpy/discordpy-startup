@@ -22,10 +22,30 @@ ment_end_datetime_str = '2020/02/06 18:00'
 ment_begin_datetime = datetime.strptime(ment_begin_datetime_str, '%Y/%m/%d %H:%M')
 ment_end_datetime = datetime.strptime(ment_end_datetime_str, '%Y/%m/%d %H:%M')
 
+ment_begin_prev_15min_datetime = ment_begin_datetime.datetime() - datetime.datetime(minute=-15)
+ment_begin_prev_30min_datetime = ment_begin_datetime.datetime() - datetime.datetime(minute=-30)
+ment_begin_prev_60min_datetime = ment_begin_datetime.datetime() - datetime.datetime(minute=-60)
+ment_begin_prev_120min_datetime = ment_begin_datetime.datetime() - datetime.datetime(minute=-120)
+ment_begin_prev_240min_datetime = ment_begin_datetime.datetime() - datetime.datetime(minute=-240)
+
+ment_begin_time = ment_begin_datetime.strftime('%H:%M')
+ment_end_time = ment_end_datetime.strftime('%H:%M')
+
 #メンテナンス事前予告
 ment_prev_msgs=[
-    ['00:05', '@everyone\n**【メンテ】**次回のメンテナンスは ' + ment_begin_datetime_str + ' ～ ' + ment_end_datetime_str + ' の予定です。'],
-    ['12:05', '@everyone\n**【メンテ】**次回のメンテナンスは ' + ment_begin_datetime_str + ' ～ ' + ment_end_datetime_str + ' の予定です。']
+    ['00:05', '@everyone\n【メンテ】次回のメンテナンスは ' + ment_begin_datetime_str + ' ～ ' + ment_end_datetime_str + ' の予定です。'],
+    ['12:05', '@everyone\n【メンテ】次回のメンテナンスは ' + ment_begin_datetime_str + ' ～ ' + ment_end_datetime_str + ' の予定です。']
+]
+
+#メンテナンス直前予告
+ment_soon_msgs=[
+    [ment_begin_prev_240min_datetime.strftime('%Y/%m/%d'), ment_begin_prev_240min_datetime.strftime('%H:%M'), '@everyone\n【メンテ】' + ment_begin_time + 'からメンテナンスです。\nメンテナンスは ' + ment_begin_datetime_str + ' ～ ' + ment_end_datetime_str + ' の予定です。'],
+    [ment_begin_prev_120min_datetime.strftime('%Y/%m/%d'), ment_begin_prev_120min_datetime.strftime('%H:%M'), '@everyone\n【メンテ】' + ment_begin_time + 'からメンテナンスです。\nメンテナンスは ' + ment_begin_datetime_str + ' ～ ' + ment_end_datetime_str + ' の予定です。'],
+    [ment_begin_prev_60min_datetime.strftime('%Y/%m/%d'), ment_begin_prev_60min_datetime.strftime('%H:%M'), '@everyone\n【メンテ】' + ment_begin_time + 'からメンテナンスです。\nメンテナンスは ' + ment_begin_datetime_str + ' ～ ' + ment_end_datetime_str + ' の予定です。\n演習のおもらしなどにご注意くださいっ！'],
+    [ment_begin_prev_30min_datetime.strftime('%Y/%m/%d'), ment_begin_prev_30min_datetime.strftime('%H:%M'), '@everyone\n【メンテ】' + ment_begin_time + 'からメンテナンスです。\nメンテナンスは ' + ment_begin_datetime_str + ' ～ ' + ment_end_datetime_str + ' の予定です。\n演習のおもらしなどにご注意くださいっ！'],
+    [ment_begin_prev_15min_datetime.strftime('%Y/%m/%d'), ment_begin_prev_15min_datetime.strftime('%H:%M'), '@everyone\n【演習】メンテ前の演習おもらし注意報をお知らせしますっ！'],
+    [ment_begin_datetime.strftime('%Y/%m/%d'), ment_begin_datetime.strftime('%H:%M'), '@everyone\n【メンテ】メンテナンスが開始されましたっ！（たぶん）\nメンテナンスは ' + ment_end_datetime_str + ' までの予定です。'],
+    [ment_end_datetime.strftime('%Y/%m/%d'), ment_end_datetime.strftime('%H:%M'), '@everyone\n【メンテ】メンテナンス終了時間ですっ！\n時間通りに終わってるかな…？']
 ]
 
 #曜日別メッセージリスト
@@ -141,15 +161,25 @@ async def loop():
 #            print(' >ment_end_datetime_str:', ment_end_datetime_str)
 #            print(' >ment_begin_datetime:', ment_begin_datetime)
 #            print(' >ment_end_datetime:', ment_end_datetime)
-        delta = ment_begin_datetime.date() - now_datetime.date()
-        if(ment_begin_datetime.date() == now_datetime.date()):
+
+
+        #----メンテ直前メッセージ----
+        for ment_soon_msg in ment_soon_msgs:
+            print(' >ment soon check:', ment_soon_msg[0], ment_soon_msg[1], ment_soon_msg[2])
+            if(ment_soon_msg[0] == now_date) and (ment_soon_msg[1] == now_time):
+                print(' >>SEND:', ment_soon_msg[2])
+                channel = client.get_channel(channel_id)
+                await channel.send(ment_soon_msg[2])
+
+        #----メンテ事前メッセージ----
+        if(ment_begin_datetime.date() > now_datetime.date()):
             for ment_prev_msg in ment_prev_msgs:
-                print(' >ment today check:', ment_prev_msg[0], ment_prev_msg[1])
+                print(' >ment prev check:', ment_prev_msg[0], ment_prev_msg[1])
                 if(ment_prev_msg[0] == now_time):
                     print(' >>SEND:', ment_prev_msg[1])
                     channel = client.get_channel(channel_id)
                     await channel.send(ment_prev_msg[1])
-        
+                
         #----毎日メッセージ----
         for dayly_msg in dayly_msgs:
             print(' >dayly check:', dayly_msg[0])
