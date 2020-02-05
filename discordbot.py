@@ -17,8 +17,8 @@ client = discord.Client()
 token = os.environ['DISCORD_BOT_TOKEN']
 channel_id = int(os.environ['DISCORD_CHANNEL_ID'])
 
-ment_begin_datetime_str = '2020/02/06 14:00'
-ment_end_datetime_str = '2020/02/06 18:00'
+ment_begin_datetime_str = os.environ['MENTE_BEGIN_PARAM']
+ment_end_datetime_str = os.environ['MENTE_END_PARAM']
 ment_begin_datetime = datetime.strptime(ment_begin_datetime_str, '%Y/%m/%d %H:%M')
 ment_end_datetime = datetime.strptime(ment_end_datetime_str, '%Y/%m/%d %H:%M')
 
@@ -142,7 +142,7 @@ async def loop():
 
         #----メンテ直前メッセージ----
         for ment_soon_msg in ment_soon_msgs:
-            print(' >ment soon check:', ment_soon_msg[0], ment_soon_msg[1], ment_soon_msg[2])
+            print(' >ment soon check:', ment_soon_msg[0], ment_soon_msg[1])
             if(ment_soon_msg[0] == now_date) and (ment_soon_msg[1] == now_time):
                 print(' >>SEND:', ment_soon_msg[2])
                 channel = client.get_channel(channel_id)
