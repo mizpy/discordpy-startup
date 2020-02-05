@@ -22,7 +22,7 @@ ment_end_datetime_str = '2020/02/06 18:00'
 ment_begin_datetime = datetime.strptime(ment_begin_datetime_str, '%Y/%m/%d %H:%M')
 ment_end_datetime = datetime.strptime(ment_end_datetime_str, '%Y/%m/%d %H:%M')
 
-ment_begin_prev_15min_datetime = ment_begin_datetime - datetime(minute=15)
+ment_begin_prev_15min_datetime = ment_begin_datetime.datetime() - datetime(minute=15)
 ment_begin_prev_30min_datetime = ment_begin_datetime - datetime(minute=30)
 ment_begin_prev_60min_datetime = ment_begin_datetime - datetime(minute=60)
 ment_begin_prev_120min_datetime = ment_begin_datetime - datetime(minute=120)
