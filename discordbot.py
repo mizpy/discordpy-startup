@@ -107,7 +107,7 @@ async def loop():
     
     if (prev_time != now_time) and (client_logged == 1):
         prev_time = now_time
-        print(now_date + now_time)
+        print(now_date, now_weekday, now_time)
         # 時差は日本時間-9時間
         # 11:45->2:45
         # 17:45->8:45
