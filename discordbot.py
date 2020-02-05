@@ -101,7 +101,7 @@ async def loop():
     # 現在の時刻
     global prev_time
     now_datetime = datetime.now(JST)
-    now_date = now_datetime.strftime('%Y-%m/%d')
+    #now_date = now_datetime.strftime('%Y-%m/%d')
     now_time = now_datetime.strftime('%H:%M')
     now_weekday = now_datetime.weekday()
     
