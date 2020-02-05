@@ -83,39 +83,39 @@ async def loop():
             channel = client.get_channel(channel_id)
             await channel.send('@everyone\n**【演習】**深夜0時前の演習おもらし注意報をお知らせしますっ！')  
         #----メンテ系の設定----
-        elif (now == '3:05'):
-            print('send')
-            channel = client.get_channel(channel_id)
-            await channel.send('@everyone\n**【メンテ】**次回のメンテナンスは2/6（木）14:00～18:00の予定です。')
+#        elif (now == '3:05'):
+#            print('send')
+#            channel = client.get_channel(channel_id)
+#            await channel.send('@everyone\n**【メンテ】**次回のメンテナンスは2/6（木）14:00～18:00の予定です。')
+#        elif (now == '15:05'):
+#            print('send')
+#            channel = client.get_channel(channel_id)
+#            await channel.send('@everyone\n**【メンテ】**次回のメンテナンスは2/6（木）14:00～18:00の予定です。')
         elif (now == '15:05'):
             print('send')
             channel = client.get_channel(channel_id)
-            await channel.send('@everyone\n**【メンテ】**次回のメンテナンスは2/6（木）14:00～18:00の予定です。')
-#        elif (now == '15:10'):
-#            print('send')
-#            channel = client.get_channel(channel_id)
-#            await channel.send('@everyone\n**【メンテ】**本日14:00からメンテナンスです。\nメンテナンス時間は14:00-20:00となっています。')  
-#        elif (now == '00:00'):
-#            print('send')
-#            channel = client.get_channel(channel_id)
-#            await channel.send('@everyone\n**【メンテ】**本日14:00からメンテナンスです。\nメンテナンス時間は14:00-20:00となっています。')  
-#        elif (now == '03:00'):
-#            print('send')
-#            channel = client.get_channel(channel_id)
-#            await channel.send('@everyone\n**【メンテ】**本日14:00からメンテナンスです。\nメンテナンス時間は14:00-20:00となっています。\n演習のおもらしなどにご注意くださいっ！')  
-#        elif (now == '04:30'):
-#            print('send')
-#            channel = client.get_channel(channel_id)
-#            await channel.send('@everyone\n**【メンテ】**本日14:00からメンテナンスです。\nメンテナンス時間は14:00-20:00となっています。\n演習のおもらしなどにご注意くださいっ！')  
-#        elif (now == '04:45'):
-#            print('send')
-#            channel = client.get_channel(channel_id)
-#            await channel.send('@everyone\n**【演習】**メンテ前の演習おもらし注意報をお知らせしますっ！')  
+            await channel.send('@everyone\n**【メンテ】**本日14:00からメンテナンスです。\nメンテナンス時間は14:00-18:00となっています。')  
+        elif (now == '00:00'):
+            print('send')
+            channel = client.get_channel(channel_id)
+            await channel.send('@everyone\n**【メンテ】**本日14:00からメンテナンスです。\nメンテナンス時間は14:00-18:00となっています。')  
+        elif (now == '03:00'):
+            print('send')
+            channel = client.get_channel(channel_id)
+            await channel.send('@everyone\n**【メンテ】**本日14:00からメンテナンスです。\nメンテナンス時間は14:00-18:00となっています。\n演習のおもらしなどにご注意くださいっ！')  
+        elif (now == '04:30'):
+            print('send')
+            channel = client.get_channel(channel_id)
+            await channel.send('@everyone\n**【メンテ】**本日14:00からメンテナンスです。\nメンテナンス時間は14:00-18:00となっています。\n演習のおもらしなどにご注意くださいっ！')  
+        elif (now == '04:45'):
+            print('send')
+            channel = client.get_channel(channel_id)
+            await channel.send('@everyone\n**【演習】**メンテ前の演習おもらし注意報をお知らせしますっ！')  
 #        elif (now == '05:00'):
 #            print('send')
 #            channel = client.get_channel(channel_id)
-#            await channel.send('@everyone\n**【メンテ】**メンテナンスが開始されましたっ！（たぶん）\nメンテナンス時間は14:00-20:00となっています。')  
-#        elif (now == '11:00'):
+#            await channel.send('@everyone\n**【メンテ】**メンテナンスが開始されましたっ！（たぶん）\nメンテナンス時間は14:00-18:00となっています。')  
+#        elif (now == '09:00'):
 #            print('send')
 #            channel = client.get_channel(channel_id)
 #            await channel.send('@everyone\n**【メンテ】**メンテナンス終了時間ですっ！\n時間通りに終わってるかな…？')  
