@@ -1,5 +1,5 @@
 import discord
-import datetime, timedelta, timezone
+from datetime import datetime, timedelta, timezone
 from discord.ext import commands
 from discord.ext import tasks
 import os
@@ -22,11 +22,11 @@ ment_end_datetime_str = '2020/02/06 18:00'
 ment_begin_datetime = datetime.strptime(ment_begin_datetime_str, '%Y/%m/%d %H:%M')
 ment_end_datetime = datetime.strptime(ment_end_datetime_str, '%Y/%m/%d %H:%M')
 
-ment_begin_prev_15min_datetime = ment_begin_datetime.datetime() - datetime(minute=15)
-ment_begin_prev_30min_datetime = ment_begin_datetime - datetime(minute=30)
-ment_begin_prev_60min_datetime = ment_begin_datetime - datetime(minute=60)
-ment_begin_prev_120min_datetime = ment_begin_datetime - datetime(minute=120)
-ment_begin_prev_240min_datetime = ment_begin_datetime - datetime(minute=240)
+ment_begin_prev_15min_datetime = ment_begin_datetime - timedelta(minutes=15)
+ment_begin_prev_30min_datetime = ment_begin_datetime - timedelta(minutes=30)
+ment_begin_prev_60min_datetime = ment_begin_datetime - timedelta(minutes=60)
+ment_begin_prev_120min_datetime = ment_begin_datetime - timedelta(minutes=120)
+ment_begin_prev_240min_datetime = ment_begin_datetime - timedelta(minutes=240)
 
 ment_begin_time = ment_begin_datetime.strftime('%H:%M')
 ment_end_time = ment_end_datetime.strftime('%H:%M')
