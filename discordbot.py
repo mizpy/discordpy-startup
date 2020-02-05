@@ -105,6 +105,7 @@ async def loop():
     now_date = now_datetime.strftime('%Y-%m/%d')
     now_time = now_datetime.strftime('%H:%M')
     now_weekday = now_datetime.weekday()
+    
     if (prev_time != now_time) and (client_logged == 1):
         prev_time = now_time
         print(now_datetime + '\n' + now_date + '(' + now_weekday + ') ' + now_time)
