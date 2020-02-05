@@ -5,6 +5,8 @@ from discord.ext import tasks
 import os
 import traceback
 
+JST = timezone(timedelta(hours=+9), 'JST')
+
 #bot_logged = 0
 client_logged = 0
 prev_now = ''
@@ -98,8 +100,9 @@ async def on_ready():
 async def loop():
     # 現在の時刻
     global prev_now
-    now = datetime.now().strftime('%H:%M')
-    now_weekday = datetime.now().weekday()
+    now_datetime = datetime.now(JST)
+    now = now_datetime.strftime('%H:%M')
+    now_weekday = now_datetime.weekday()
     if (prev_now != now) and (client_logged == 1):
         prev_now = now
         print(now)
