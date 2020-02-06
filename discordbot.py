@@ -39,10 +39,10 @@ ment_prev_msgs=[
 
 #メンテナンス直前予告
 ment_soon_msgs=[
-    [ment_begin_prev_240min_datetime.strftime('%Y/%m/%d'), ment_begin_prev_240min_datetime.strftime('%H:%M'), '@everyone\n【メンテ】' + ment_begin_time + 'からメンテナンスです。\nメンテナンスは ' + ment_begin_datetime_str + ' ～ ' + ment_end_datetime_str + ' の予定です。'],
-    [ment_begin_prev_120min_datetime.strftime('%Y/%m/%d'), ment_begin_prev_120min_datetime.strftime('%H:%M'), '@everyone\n【メンテ】' + ment_begin_time + 'からメンテナンスです。\nメンテナンスは ' + ment_begin_datetime_str + ' ～ ' + ment_end_datetime_str + ' の予定です。'],
-    [ment_begin_prev_60min_datetime.strftime('%Y/%m/%d'), ment_begin_prev_60min_datetime.strftime('%H:%M'), '@everyone\n【メンテ】' + ment_begin_time + 'からメンテナンスです。\nメンテナンスは ' + ment_begin_datetime_str + ' ～ ' + ment_end_datetime_str + ' の予定です。\n演習のおもらしなどにご注意くださいっ！'],
-    [ment_begin_prev_30min_datetime.strftime('%Y/%m/%d'), ment_begin_prev_30min_datetime.strftime('%H:%M'), '@everyone\n【メンテ】' + ment_begin_time + 'からメンテナンスです。\nメンテナンスは ' + ment_begin_datetime_str + ' ～ ' + ment_end_datetime_str + ' の予定です。\n演習のおもらしなどにご注意くださいっ！'],
+    [ment_begin_prev_240min_datetime.strftime('%Y/%m/%d'), ment_begin_prev_240min_datetime.strftime('%H:%M'), '@everyone\n【メンテ】4時間後の' + ment_begin_time + 'からメンテナンスです。\nメンテナンスは ' + ment_begin_datetime_str + ' ～ ' + ment_end_datetime_str + ' の予定です。'],
+    [ment_begin_prev_120min_datetime.strftime('%Y/%m/%d'), ment_begin_prev_120min_datetime.strftime('%H:%M'), '@everyone\n【メンテ】2時間後の' + ment_begin_time + 'からメンテナンスです。\nメンテナンスは ' + ment_begin_datetime_str + ' ～ ' + ment_end_datetime_str + ' の予定です。'],
+    [ment_begin_prev_60min_datetime.strftime('%Y/%m/%d'), ment_begin_prev_60min_datetime.strftime('%H:%M'), '@everyone\n【メンテ】1時間後の' + ment_begin_time + 'からメンテナンスです。\nメンテナンスは ' + ment_begin_datetime_str + ' ～ ' + ment_end_datetime_str + ' の予定です。\n演習のおもらしなどにご注意くださいっ！'],
+    [ment_begin_prev_30min_datetime.strftime('%Y/%m/%d'), ment_begin_prev_30min_datetime.strftime('%H:%M'), '@everyone\n【メンテ】30分後の' + ment_begin_time + 'からメンテナンスです。\nメンテナンスは ' + ment_begin_datetime_str + ' ～ ' + ment_end_datetime_str + ' の予定です。\n演習のおもらしなどにご注意くださいっ！'],
     [ment_begin_prev_15min_datetime.strftime('%Y/%m/%d'), ment_begin_prev_15min_datetime.strftime('%H:%M'), '@everyone\n【演習】メンテ前の演習おもらし注意報をお知らせしますっ！'],
     [ment_begin_datetime.strftime('%Y/%m/%d'), ment_begin_datetime.strftime('%H:%M'), '@everyone\n【メンテ】メンテナンスが開始されましたっ！（たぶん）\nメンテナンスは ' + ment_end_datetime_str + ' までの予定です。'],
     [ment_end_datetime.strftime('%Y/%m/%d'), ment_end_datetime.strftime('%H:%M'), '@everyone\n【メンテ】メンテナンス終了時間ですっ！\n時間通りに終わってるかな…？']
