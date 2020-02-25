@@ -48,6 +48,7 @@ ment_soon_msgs=[
     [ment_end_datetime.strftime('%Y/%m/%d'), ment_end_datetime.strftime('%H:%M'), '@everyone\n【メンテ】メンテナンス終了時間ですっ！\n時間通りに終わってるかな…？']
 ]
 
+
 #曜日別メッセージリスト
 mon_msgs=[
     ['00:00', '@everyone\n【講堂】『ぴんぽんぱんぽーん！アマゾン先生、アマゾン先生、講義の時間です。至急講堂までー。』\n…ZzZzZz……んんっ！？もう講義の時間っ！？指揮官に呼び出されるとか最悪ーっ！（アマゾン）\n:dolphin:月曜日は大講堂で駆逐艦に授業を受けさせましょう:dolphin:'],
