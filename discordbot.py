@@ -37,6 +37,13 @@ ment_prev_msgs=[
     ['12:05', '@everyone\n【メンテ】次回のメンテナンスは ' + ment_begin_datetime_str + ' ～ ' + ment_end_datetime_str + ' の予定です。']
 ]
 
+#メンテナンス当日予告
+ment_today_msgs=[
+    ['00:05', '@everyone\n【メンテ】本日はメンテナンス日です。\nメンテナンスは ' + ment_begin_datetime_str + ' ～ ' + ment_end_datetime_str + ' の予定です。'],
+    ['06:05', '@everyone\n【メンテ】本日はメンテナンス日です。\nメンテナンスは ' + ment_begin_datetime_str + ' ～ ' + ment_end_datetime_str + ' の予定です。'],
+    ['12:05', '@everyone\n【メンテ】本日はメンテナンス日です。\nメンテナンスは ' + ment_begin_datetime_str + ' ～ ' + ment_end_datetime_str + ' の予定です。'],
+]
+
 #メンテナンス直前予告
 ment_soon_msgs=[
     [ment_begin_prev_240min_datetime.strftime('%Y/%m/%d'), ment_begin_prev_240min_datetime.strftime('%H:%M'), '@everyone\n【メンテ】4時間後の' + ment_begin_time + 'からメンテナンスです。\nメンテナンスは ' + ment_begin_datetime_str + ' ～ ' + ment_end_datetime_str + ' の予定です。'],
@@ -142,6 +149,7 @@ async def loop():
         print(now_date, now_weekday, now_time)
 
         #----メンテ直前メッセージ----
+        bSoonMsg = false
         for ment_soon_msg in ment_soon_msgs:
             print(' >ment soon check:', ment_soon_msg[0], ment_soon_msg[1])
             if(ment_soon_msg[0] == now_date) and (ment_soon_msg[1] == now_time):
@@ -157,7 +165,15 @@ async def loop():
                     print(' >>SEND:', ment_prev_msg[1])
                     channel = client.get_channel(channel_id)
                     await channel.send(ment_prev_msg[1])
-                
+        #----メンテ当日メッセージ----
+        elif(ment_begin_datetime.date() == now_datetime.date() and (now_datetime < ment_begin_prev_240min_datetime):
+            for ment_today_msg in ment_today_msgs:
+                print(' >ment today check:', ment_today_msg[0], ment_today_msg[1])
+                if(ment_today_msg[0] == now_time):
+                    print(' >>SEND:', ment_today_msg[1])
+                    channel = client.get_channel(channel_id)
+                    await channel.send(ment_today_msg[1])
+                        
         #----毎日メッセージ----
         for dayly_msg in dayly_msgs:
             print(' >dayly check:', dayly_msg[0])
