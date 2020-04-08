@@ -166,7 +166,7 @@ async def loop():
                     await channel.send(ment_prev_msg[1])
                     
         #----メンテ当日メッセージ----
-        if(ment_begin_datetime.date() > now_datetime.date()) and (now_datetime < ment_begin_prev_240min_datetime):
+        if(ment_begin_datetime.date() > now_datetime.date()) and (ment_begin_prev_240min_datetime - now_datetime > 0):
             for ment_today_msg in ment_today_msgs:
                 #print(' >ment today check:', ment_today_msg[0], ment_today_msg[1])
                 print(' >ment today check:', now_datetime.time(), ment_begin_prev_240min_datetime.time())
