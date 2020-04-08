@@ -167,9 +167,9 @@ async def loop():
                     
         #----メンテ当日メッセージ----
         if(now_datetime.time() <= ment_begin_prev_240min_datetime.time()):
-            print(type(' >ment today check:small'))
+            print(' >ment today check:small')
         else:
-            print(type(' >ment today check:big'))
+            print(' >ment today check:big')
     
         print(type(now_datetime))
         print(type(ment_begin_prev_240min_datetime))
