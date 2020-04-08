@@ -149,7 +149,6 @@ async def loop():
         print(now_date, now_weekday, now_time)
 
         #----メンテ直前メッセージ----
-        bSoonMsg = false
         for ment_soon_msg in ment_soon_msgs:
             print(' >ment soon check:', ment_soon_msg[0], ment_soon_msg[1])
             if(ment_soon_msg[0] == now_date) and (ment_soon_msg[1] == now_time):
@@ -165,6 +164,7 @@ async def loop():
                     print(' >>SEND:', ment_prev_msg[1])
                     channel = client.get_channel(channel_id)
                     await channel.send(ment_prev_msg[1])
+                    
         #----メンテ当日メッセージ----
         elif(ment_begin_datetime.date() == now_datetime.date() and (now_datetime < ment_begin_prev_240min_datetime):
             for ment_today_msg in ment_today_msgs:
