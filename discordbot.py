@@ -167,26 +167,14 @@ async def loop():
                     
         #----メンテ当日メッセージ----
         elif((ment_begin_datetime.date() == now_datetime.date()) and (now_datetime.date() == ment_begin_prev_240min_datetime.date())):
-            if((now_datetime.date() < ment_begin_prev_240min_datetime.date()) and (now_datetime.time() <= ment_begin_prev_240min_datetime.time())):
-                print(' >ment today check:')
-    
-        print(type(now_datetime))
-        print(type(ment_begin_prev_240min_datetime))
-        print(now_datetime.date())
-        print(now_datetime.time())
-        print(ment_begin_prev_240min_datetime.date())
-        print(ment_begin_prev_240min_datetime.time())
-        
-#        print((ment_begin_prev_240min_datetime-now_datetime).days)
-#        if((ment_begin_prev_240min_datetime - now_datetime) > timedelta(minutes=1)):
-#            for ment_today_msg in ment_today_msgs:
-#                print(' >ment today check:', ment_today_msg[0], ment_today_msg[1])
-#                #print(' >ment today check:', now_datetime, ment_begin_prev_240min_datetime)
-#                if(ment_today_msg[0] == now_time):
-#                    print(' >>SEND:', ment_today_msg[1])
-#                    channel = client.get_channel(channel_id)
-#                    await channel.send(ment_today_msg[1])
-                        
+            if(now_datetime.time() < ment_begin_prev_240min_datetime.time()):
+                for ment_today_msg in ment_today_msgs:
+                    print(' >ment today check:', ment_today_msg[0], ment_today_msg[1])
+                    if(ment_today_msg[0] == now_time):
+                        print(' >>SEND:', ment_today_msg[1])
+                        channel = client.get_channel(channel_id)
+                        await channel.send(ment_today_msg[1])
+                            
         #----毎日メッセージ----
         for dayly_msg in dayly_msgs:
             print(' >dayly check:', dayly_msg[0])
