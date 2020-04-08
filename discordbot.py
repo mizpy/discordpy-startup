@@ -41,7 +41,7 @@ ment_prev_msgs=[
 ment_today_msgs=[
     ['00:05', '@everyone\n【メンテ】本日はメンテナンス日です。\nメンテナンスは ' + ment_begin_datetime_str + ' ～ ' + ment_end_datetime_str + ' の予定です。'],
     ['06:05', '@everyone\n【メンテ】本日はメンテナンス日です。\nメンテナンスは ' + ment_begin_datetime_str + ' ～ ' + ment_end_datetime_str + ' の予定です。'],
-    ['12:05', '@everyone\n【メンテ】本日はメンテナンス日です。\nメンテナンスは ' + ment_begin_datetime_str + ' ～ ' + ment_end_datetime_str + ' の予定です。'],
+    ['12:05', '@everyone\n【メンテ】本日はメンテナンス日です。\nメンテナンスは ' + ment_begin_datetime_str + ' ～ ' + ment_end_datetime_str + ' の予定です。']
 ]
 
 #メンテナンス直前予告
@@ -166,7 +166,7 @@ async def loop():
                     await channel.send(ment_prev_msg[1])
                     
         #----メンテ当日メッセージ----
-        if(ment_begin_datetime.date() > now_datetime.date()) and (now_datetime.time() < ment_begin_prev_240min_datetime.time()):
+        if(ment_begin_datetime.date() > now_datetime.date()) and (now_datetime < ment_begin_prev_240min_datetime):
             for ment_today_msg in ment_today_msgs:
                 #print(' >ment today check:', ment_today_msg[0], ment_today_msg[1])
                 print(' >ment today check:', now_datetime.time(), ment_begin_prev_240min_datetime.time())
