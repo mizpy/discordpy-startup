@@ -168,8 +168,8 @@ async def loop():
         #----メンテ当日メッセージ----
         if((ment_begin_prev_240min_datetime - now_datetime) > timedelta(minutes=1)):
             for ment_today_msg in ment_today_msgs:
-                #print(' >ment today check:', ment_today_msg[0], ment_today_msg[1])
-                print(' >ment today check:', now_datetime, ment_begin_prev_240min_datetime)
+                print(' >ment today check:', ment_today_msg[0], ment_today_msg[1])
+                #print(' >ment today check:', now_datetime, ment_begin_prev_240min_datetime)
                 if(ment_today_msg[0] == now_time):
                     print(' >>SEND:', ment_today_msg[1])
                     channel = client.get_channel(channel_id)
