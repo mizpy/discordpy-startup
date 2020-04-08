@@ -166,9 +166,10 @@ async def loop():
                     await channel.send(ment_prev_msg[1])
                     
         #----メンテ当日メッセージ----
-        elif(ment_begin_datetime.date() == now_datetime.date() and (now_datetime < ment_begin_prev_240min_datetime):
+        if(ment_begin_datetime.date() > now_datetime.date() and (now_datetime.time() < ment_begin_prev_240min_datetime.time()):
             for ment_today_msg in ment_today_msgs:
-                print(' >ment today check:', ment_today_msg[0], ment_today_msg[1])
+                #print(' >ment today check:', ment_today_msg[0], ment_today_msg[1])
+                print(' >ment today check:', now_datetime.time(), ment_begin_prev_240min_datetime.time())
                 if(ment_today_msg[0] == now_time):
                     print(' >>SEND:', ment_today_msg[1])
                     channel = client.get_channel(channel_id)
