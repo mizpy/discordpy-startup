@@ -166,6 +166,11 @@ async def loop():
                     await channel.send(ment_prev_msg[1])
                     
         #----メンテ当日メッセージ----
+        if(now_datetime.time() <= ment_begin_prev_240min_datetime.time()):
+            print(type(' >ment today check:small'))
+        else:
+            print(type(' >ment today check:big'))
+    
         print(type(now_datetime))
         print(type(ment_begin_prev_240min_datetime))
         print(now_datetime.date())
