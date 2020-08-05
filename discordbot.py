@@ -134,6 +134,7 @@ async def on_ready():
 #        channel = client.get_channel(channel_id)
 #        await channel.send('演習おもらし注意報をお知らせしますっ！（テスト）')  
     
+    
 # 5秒に一回ループ
 @tasks.loop(seconds=5)
 async def loop():
