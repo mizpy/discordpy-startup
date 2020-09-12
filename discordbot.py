@@ -104,13 +104,13 @@ third_anniv_msgs=[
     ['07:40', '@everyone\n【３周年記念２５時間生放送】07:45～08:45 若手超人にクローズアップ！ https://youtu.be/ac5_qCF6AVg'],
     ['09:00', '@everyone\n【３周年記念２５時間生放送】09:05～10:35 激突！ガチンコ艦船バトル https://youtu.be/ac5_qCF6AVg'],
     ['10:50', '@everyone\n【３周年記念２５時間生放送】10:55～11:55 アズールレーンクロスウェーブ コラボスペシャル https://youtu.be/ac5_qCF6AVg'],
-    ['12:10', '@everyone\n【３周年記念２５時間生放送】12:15～13:15 三笠大先輩と学ぶ世界の艦船 出張版 https://youtu.be/ac5_qCF6AVg'],
-    ['13:30', '@everyone\n【３周年記念２５時間生放送】13:35〜14:35 アズレンステーション 最終回SP https://youtu.be/ac5_qCF6AVg'],
-    ['14:55', '@everyone\n【３周年記念２５時間生放送】15:00～16:00 びそくぜんしんっ！ アニメ制作秘話 https://youtu.be/ac5_qCF6AVg'],
-    ['16:15', '@everyone\n【３周年記念２５時間生放送】16:20～17:50 アズトーーク https://youtu.be/ac5_qCF6AVg'],
-    ['17:55', '@everyone\n【３周年記念２５時間生放送】18:00〜19:00 親ばかトーク炸裂 ～うちの娘（フィギュア）が一番かわいい！～ https://youtu.be/ac5_qCF6AVg'],
-    ['19:05', '@everyone\n【３周年記念２５時間生放送】19:10〜20:10 祝３周年！アズレン公式生放送 第二夜 ～まだまだあります最新情報～ https://youtu.be/ac5_qCF6AVg'],
-    ['20:10', '@everyone\n【３周年記念２５時間生放送】20:15～21:00 グランドフィナーレ https://youtu.be/ac5_qCF6AVg'],
+    ['12:10', '@everyone\n【３周年記念２５時間生放送】12:15～13:15 三笠大先輩と学ぶ世界の艦船 出張版 https://youtu.be/AmYrelLerzU'],
+    ['13:30', '@everyone\n【３周年記念２５時間生放送】13:35〜14:35 アズレンステーション 最終回SP https://youtu.be/AmYrelLerzU'],
+    ['14:55', '@everyone\n【３周年記念２５時間生放送】15:00～16:00 びそくぜんしんっ！ アニメ制作秘話 https://youtu.be/AmYrelLerzU'],
+    ['16:15', '@everyone\n【３周年記念２５時間生放送】16:20～17:50 アズトーーク https://youtu.be/AmYrelLerzU'],
+    ['17:55', '@everyone\n【３周年記念２５時間生放送】18:00〜19:00 親ばかトーク炸裂 ～うちの娘（フィギュア）が一番かわいい！～ https://youtu.be/AmYrelLerzU'],
+    ['19:05', '@everyone\n【３周年記念２５時間生放送】19:10〜20:10 祝３周年！アズレン公式生放送 第二夜 ～まだまだあります最新情報～ https://youtu.be/AmYrelLerzU'],
+    ['20:10', '@everyone\n【３周年記念２５時間生放送】20:15～21:00 グランドフィナーレ https://youtu.be/AmYrelLerzU'],
 ]
 
 
