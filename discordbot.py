@@ -155,7 +155,7 @@ async def loop():
         print(now_date, now_weekday, now_time)
 
         #----生放送メッセージ----
-        if(now_datetime.date() == '2020/09/12'):
+        if(now_datetime.date() == datetime.strptime('2020/09/12','%Y/%m/%d').date()):
             print(' >third_anniv_msg check:')
             for third_anniv_msg in third_anniv_msgs:
                 print(' >third_anniv check:', third_anniv_msg[0], third_anniv_msg[1])
