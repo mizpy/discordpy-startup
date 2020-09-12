@@ -93,6 +93,12 @@ dayly_msgs=[
     ['23:45', '@everyone\n【演習】深夜0時前の演習おもらし注意報をお知らせしますっ！']
 ]
 
+#生放送メッセージリスト
+third_anniv_msgs=[
+    ['22:40', '@everyone\n【３周年記念２５時間生放送】22:45～23:55 加賀友禅訪問記'],
+]
+
+
 
 
 #@bot.event
@@ -147,6 +153,16 @@ async def loop():
     if (prev_time != now_time) and (client_logged == 1):
         prev_time = now_time
         print(now_date, now_weekday, now_time)
+
+        #----生放送メッセージ----
+        if(now_datetime.date() == '2020/09/12'):
+            print(' >third_anniv_msg check:')
+            for third_anniv_msg in third_anniv_msgs:
+                print(' >third_anniv check:', third_anniv_msg[0], third_anniv_msg[1])
+                if(third_anniv_msg[0] == now_time):
+                    print(' >>SEND:', third_anniv_msg[1])
+                    channel = client.get_channel(channel_id)
+                    await channel.send(third_anniv_msg[1])
 
         #----メンテ直前メッセージ----
         for ment_soon_msg in ment_soon_msgs:
