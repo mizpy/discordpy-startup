@@ -95,10 +95,23 @@ dayly_msgs=[
 
 #生放送メッセージリスト
 third_anniv_msgs=[
-    ['22:40', '@everyone\n【３周年記念２５時間生放送】22:45～23:55 加賀友禅訪問記'],
+    ['00:05', '@everyone\n【３周年記念２５時間生放送】00:10〜01:15 アズレン格付け検定 https://youtu.be/a6Zuu6m80W4'],
+    ['01:25', '@everyone\n【３周年記念２５時間生放送】01:30～03:30 大人のアズレン https://youtu.be/a6Zuu6m80W4'],
+    ['03:40', '@everyone\n【３周年記念２５時間生放送】03:45～04:45 アズレン×ホロライブ ～白上あくあマリン～ https://youtu.be/a6Zuu6m80W4'],
+    ['04:55', '@everyone\n【３周年記念２５時間生放送】05:00～05:50 指揮官の声を聴かせて https://youtu.be/a6Zuu6m80W4'],
+    ['05:55', '@everyone\n【３周年記念２５時間生放送】06:00～06:30 朝アズNEWS https://youtu.be/ac5_qCF6AVg'],
+    ['06:35', '@everyone\n【３周年記念２５時間生放送】06:40～07:30 挑戦！リアル饅頭クイズバトル！ https://youtu.be/ac5_qCF6AVg'],
+    ['07:40', '@everyone\n【３周年記念２５時間生放送】07:45～08:45 若手超人にクローズアップ！ https://youtu.be/ac5_qCF6AVg'],
+    ['09:00', '@everyone\n【３周年記念２５時間生放送】09:05～10:35 激突！ガチンコ艦船バトル https://youtu.be/ac5_qCF6AVg'],
+    ['10:50', '@everyone\n【３周年記念２５時間生放送】10:55～11:55 アズールレーンクロスウェーブ コラボスペシャル https://youtu.be/ac5_qCF6AVg'],
+    ['12:10', '@everyone\n【３周年記念２５時間生放送】12:15～13:15 三笠大先輩と学ぶ世界の艦船 出張版 https://youtu.be/ac5_qCF6AVg'],
+    ['13:30', '@everyone\n【３周年記念２５時間生放送】13:35〜14:35 アズレンステーション 最終回SP https://youtu.be/ac5_qCF6AVg'],
+    ['14:55', '@everyone\n【３周年記念２５時間生放送】15:00～16:00 びそくぜんしんっ！ アニメ制作秘話 https://youtu.be/ac5_qCF6AVg'],
+    ['16:15', '@everyone\n【３周年記念２５時間生放送】16:20～17:50 アズトーーク https://youtu.be/ac5_qCF6AVg'],
+    ['17:55', '@everyone\n【３周年記念２５時間生放送】18:00〜19:00 親ばかトーク炸裂 ～うちの娘（フィギュア）が一番かわいい！～ https://youtu.be/ac5_qCF6AVg'],
+    ['19:05', '@everyone\n【３周年記念２５時間生放送】19:10〜20:10 祝３周年！アズレン公式生放送 第二夜 ～まだまだあります最新情報～ https://youtu.be/ac5_qCF6AVg'],
+    ['20:10', '@everyone\n【３周年記念２５時間生放送】20:15～21:00 グランドフィナーレ https://youtu.be/ac5_qCF6AVg'],
 ]
-
-
 
 
 #@bot.event
@@ -155,7 +168,7 @@ async def loop():
         print(now_date, now_weekday, now_time)
 
         #----生放送メッセージ----
-        if(now_datetime.date() == datetime.strptime('2020/09/12','%Y/%m/%d').date()):
+        if((now_datetime.date() == datetime.strptime('2020/09/13','%Y/%m/%d').date())):
             print(' >third_anniv_msg check:')
             for third_anniv_msg in third_anniv_msgs:
                 print(' >third_anniv check:', third_anniv_msg[0], third_anniv_msg[1])
