@@ -213,7 +213,7 @@ async def loop():
         if((now_datetime.date() == datetime.strptime('2020/12/23','%Y/%m/%d').date())):
             print(' >one_day_only_msgs check:')
             for one_day_only_msg in one_day_only_msgs:
-                print(' >third_anniv check:', one_day_only_msg[0], one_day_only_msg[1])
+                print(' >one_day_only check:', one_day_only_msg[0])
                 if(one_day_only_msg[0] == now_time):
                     print(' >>SEND:', one_day_only_msg[1])
                     channel = client.get_channel(channel_id)
